@@ -1,0 +1,18 @@
+<div class="profile-container">
+
+    <h1 class="text-center">Edit profile</h1>
+
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <%= render 'form' %>  
+
+            <br>
+            <% if current_user.profile.is_admin  %>
+                <%= link_to 'Back', profiles_path, class: "btn btn-block btn-light" %>
+            <% else %>
+                <%= link_to 'Back', profile_path(current_user.profile), class: "btn btn-block btn-light" %>
+            <% end %>
+        </div>
+    </div>  
+</div>

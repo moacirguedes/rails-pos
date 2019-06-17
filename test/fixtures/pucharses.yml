@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  was_bought: false
+  profile_id: 
+
+two:
+  description: MyString
+  was_bought: false
+  profile_id: 

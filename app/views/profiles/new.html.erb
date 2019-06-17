@@ -1,0 +1,16 @@
+<div class="profile-container">
+
+    <h1 class="text-center">New profile</h1>
+
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <%= render 'form' %>
+
+            <br>
+            <% if current_user.profile %>
+                <%= link_to 'Back', purchases_path, class: "btn btn-block btn-light" %>
+            <% end %>
+        </div>
+    </div>
+</div>

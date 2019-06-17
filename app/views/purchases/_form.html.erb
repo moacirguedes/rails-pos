@@ -1,0 +1,39 @@
+<%= form_for(@purchase) do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li class="alert alert-danger"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label><strong>Description</strong></label>
+    <%= f.text_field :description, class: "form-control", placeholder: "FOOD!" %>
+  </div>
+
+  <div class="custom-control custom-checkbox">
+    <%= f.check_box :was_bought, class: "custom-control-input", id: "payment_check" %>
+    <label class="custom-control-label" for="payment_check">Mark as paid</label>
+  </div>
+  <% if @purchase.was_bought %>
+    <small id="emailHelp" class="form-text text-muted">By clicking the purchase will be marked as <strong>pending</strong>.</small>
+  <% else %>
+    <small id="emailHelp" class="form-text text-muted">By clicking the purchase will be marked as <strong>paid</strong>.</small>
+  <% end %>
+
+  <br>
+  <div class="form-group">
+  <label><strong>Products</strong></label>
+
+    <%= f.fields_for :product_purchases do |builder| %>
+      <%= render "product_purchase_fields", f: builder %>
+    <% end %>
+
+    <div class="add-product"><%= link_to_add_fields "Add product", f, :product_purchases %></div>    
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-lg btn-block btn-success"  %>
+<% end %>

@@ -1,0 +1,40 @@
+<div class="profile-container">
+  
+  <% if notice %>
+    <p id="notice" class="alert alert-success"><%= notice %></p>
+  <% end %>
+
+  <br>
+  <div class="card">
+    <div class="card-body">
+
+      <div class="form-group">
+        <label><strong>Name</strong></label><br>
+        <%= @profile.name %>
+      </div>
+
+      <div class="form-group">
+        <label><strong>Age</strong></label><br>
+        <%= @profile.age %> yo
+      </div>
+
+      <div class="form-group">
+        <label><strong>E-mail</strong></label><br>
+        <%= @profile.user.email  %>
+      </div>
+
+      <% if @profile.is_admin %>
+        <h4 class="text-center"><span class="badge badge-pill badge-dark">Is an admin</span></h4>
+      <% end %>
+      
+      <br>
+      <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-block btn-secondary" %>
+      <% if current_user.profile.is_admin %>
+        <%= link_to 'Back', profiles_path, class: "btn btn-block btn-light" %>      
+      <% else %>
+        <%= link_to 'Back', purchases_path, class: "btn btn-block btn-light" %>      
+      <% end %>
+
+    </div>
+  </div>
+</div>

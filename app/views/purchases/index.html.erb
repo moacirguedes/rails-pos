@@ -1,0 +1,44 @@
+<% if notice %>
+  <p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<% if current_user.profile.is_admin %>
+  <strong class="text-muted">Admin</strong>
+  <h1>Welcome, <%= current_user.profile.name  %>.</h1>
+<% else %>
+  <h1>Hey, <%= current_user.profile.name  %>!</h1>
+<% end %>
+
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Description</th>
+      <th scope="col">Paid</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td class="text-muted"><%= purchase.id %></td>
+        <td ><%= purchase.description %></td>
+        <% if purchase.was_bought %>
+          <td><h4><span class="badge badge-success">Paid</span></h4></td>
+        <% else %>
+          <td><h4></h4></td>
+        <% end %>
+
+          <td><%= link_to 'See', purchase, class: "btn btn-outline-info btn-block" %></td>
+          <td><%= link_to 'Edit', edit_purchase_path(purchase), class: "btn btn-block btn-outline-secondary" %></td>
+          <td><%= link_to 'X', purchase, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New purchase', new_purchase_path, class: "btn btn-success" %>

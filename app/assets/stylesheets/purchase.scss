@@ -1,0 +1,22 @@
+// Place all the styles related to the Purchases controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.add-product{
+    text-align: center;
+    margin-top: 10px;
+
+    a{
+        border-radius: 5px;
+        padding: 10px 150px;
+        color: #5a5a5a;
+        font-size: 1.3rem;
+        background: #fafafa;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color: #363636;
+        text-decoration: none;
+    }
+}

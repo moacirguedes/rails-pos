@@ -1,0 +1,7 @@
+<div class="fields form-inline">
+  <%= f.collection_select :product_id, @products, :id, :name, class: "custom-select" %>
+  <%= f.hidden_field :_destroy %>
+    <div class="remove_field">
+      <%= link_to_remove_fields "X", f %>
+    </div>
+</div>

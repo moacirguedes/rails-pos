@@ -1,0 +1,36 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li class="alert alert-danger"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label><strong>Name</strong></label>
+    <%= f.text_field :name, class: "form-control", placeholder: "Kanye West" %>
+  </div>
+
+  <div class="form-group">
+    <label><strong>Age</strong></label>
+    <%= f.number_field :age, class: "form-control", placeholder: "18" %>
+  </div>
+
+  <div class="custom-control custom-checkbox text-center">
+    <%= f.check_box :is_admin, class: "custom-control-input", id: "admin_check" %>
+    <label class="custom-control-label" for="admin_check">Admin</label>
+  </div>
+  <% if current_user.profile && current_user.profile.is_admin %>
+    <small id="emailHelp" class="form-text text-muted text-center">Make this profile admin.</small>
+  <% end %>
+
+  <br>
+  <% if current_user.profile && current_user.profile.is_admin %>
+    <%= f.submit "Save", class: "btn btn-block btn-lg btn-success" %>
+  <% else %>
+    <%= f.submit "Next", class: "btn btn-block btn-lg btn-success" %>
+  <% end %>
+<% end %>
