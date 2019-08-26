@@ -7,7 +7,7 @@ It is a simple rails app
 First clone this repository
 
 ```
- $ git clone https://github.com/moacirguedes/didactic-carnival
+ $ git clone https://github.com/moacirguedes/rails-pos
 
  $ cd didactic-carnival
 
