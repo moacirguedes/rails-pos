@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mini_racer', '~> 0.2.6'
 gem 'bootstrap', '~> 4.3.1'
-gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'devise', '~> 4.7'
 gem 'devise-bootstrap-views', '~> 1.1'
 
 
