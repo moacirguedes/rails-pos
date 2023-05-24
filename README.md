@@ -9,7 +9,7 @@ First clone this repository
 ```
  $ git clone https://github.com/moacirguedes/rails-pos
 
- $ cd didactic-carnival
+ $ cd rails-pos
 
 ```
 
